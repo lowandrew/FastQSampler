@@ -1,0 +1,3 @@
+This project subsample reads from fastq files to a desired depth.
+
+Actual README coming soon...
