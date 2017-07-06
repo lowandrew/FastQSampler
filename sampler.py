@@ -11,7 +11,6 @@ class Sampler(object):
         :return: records - a list of fastq objects.
         """
         from Bio import SeqIO
-        import sys
         # Empty list that will hold my fastqs
         records = list()
         # Use SeqIO to read in all my records.
@@ -24,10 +23,6 @@ class Sampler(object):
             fastq = gzip.open(fastq_file, 'rt')
             for record in SeqIO.parse(fastq, "fastq"):
                 records.append(record)
-        finally:
-            print("Couldn't open " + fastq_file + " as either a plain-text or gzipped fastq file. Plese check the "
-                                                  "file path. Exiting...")
-            sys.exit()
         return records
 
     def sample_single_reads(self):
@@ -118,7 +113,7 @@ class Sampler(object):
     @staticmethod
     def gzip_output(output_fastq_file):
         """
-        Gzips output, called  when user adds the -g flag when calling the program.
+        Gzips output, called when user adds the -g flag when calling the program.
         """
         import gzip
         import os
