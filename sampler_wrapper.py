@@ -44,8 +44,8 @@ if __name__ == "__main__":
     create_output_folder(arguments.output_folder)
     pairs, singles = parse_fastq_folder(arguments.input_folder)
     for pair in pairs:
-        outname = pair[0].split("_")[0] + "_subsampled"
-        outname = outname.split("/")[-1]
+        outname = pair[0].split("/")[-1]
+        outname = outname.split("_")[0] + "_subsampled" + str(arguments.coverage_depth)
         outname = arguments.output_folder + "/" + outname
         cmd = "sampler.py -i " + pair[0] + " " + pair[1] + " -c " + str(arguments.coverage_depth)  \
             + " -s " + str(arguments.genome_size) + " -o " + outname
@@ -53,8 +53,8 @@ if __name__ == "__main__":
             cmd += " -g"
         os.system(cmd)
     for single in singles:
-        outname = single.split("_")[0] + "_subsampled"
-        outname = outname.split("/")[-1]
+        outname = single.split("/")[-1]
+        outname = outname.split("_")[0] + "_subsampled" + str(arguments.coverage_depth)
         outname = arguments.output_folder + "/" + outname
         cmd = "sampler.py -i " + single + " -c " + str(arguments.coverage_depth) \
               + " -s " + str(arguments.genome_size) + " -o " + outname
