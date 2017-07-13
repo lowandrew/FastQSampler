@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-# Code to subsample fastq files to a desired coverage level.
-# TODO for this code:  Maybe think about parallelizing?
-
 
 class Sampler(object):
 

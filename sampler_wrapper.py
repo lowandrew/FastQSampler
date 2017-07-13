@@ -47,7 +47,7 @@ if __name__ == "__main__":
         outname = pair[0].split("_")[0] + "_subsampled"
         outname = outname.split("/")[-1]
         outname = arguments.output_folder + "/" + outname
-        cmd = "python sampler.py -i " + pair[0] + " " + pair[1] + " -c " + str(arguments.coverage_depth)  \
+        cmd = "sampler.py -i " + pair[0] + " " + pair[1] + " -c " + str(arguments.coverage_depth)  \
             + " -s " + str(arguments.genome_size) + " -o " + outname
         if arguments.gzip_output:
             cmd += " -g"
@@ -56,7 +56,7 @@ if __name__ == "__main__":
         outname = single.split("_")[0] + "_subsampled"
         outname = outname.split("/")[-1]
         outname = arguments.output_folder + "/" + outname
-        cmd = "python sampler.py -i " + single + " -c " + str(arguments.coverage_depth) \
+        cmd = "sampler.py -i " + single + " -c " + str(arguments.coverage_depth) \
               + " -s " + str(arguments.genome_size) + " -o " + outname
         if arguments.gzip_output:
             cmd += " -g"

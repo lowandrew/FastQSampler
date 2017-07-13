@@ -7,7 +7,7 @@ This project subsamples reads from fastq files to a desired depth.
 
 ## Installation:
 * python setup.py build
-* python setup.py install --user
+* sudo python setup.py install
 
 ## Use (batch mode):
 Use the sampler_wrapper script. Parameters:
