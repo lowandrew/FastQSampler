@@ -1,17 +1,21 @@
-This project subsample reads from fastq files to a desired depth.
+# FastQSampler
+This project subsamples reads from fastq files to a desired depth.
 
-Written in Python 3.5
+## Requires:
+- Python 3.5 (2.7 should also work - not yet tested).
+- Biopython (>=1.67)
 
-Requires:
-Biopython (>=1.67)
+## Installation:
+* python setup.py build
+* python setup.py install
 
-Basic Usage:
-python3 sampler.py -i <input_fastq> -c <desired_subsample_coverage> -s <size_of_genome>
+## Use (batch mode):
+Use the sampler_wrapper script. Parameters:
+* input folder, containing fastq files. Can be either gzipped or plaintext, paired or unpaired. `(-i, --input_folder)`
+* output folder, which will hold your subsampled reads. If the folder does not exist, it will be created. `(-o, --output_folder)`
+* genome size: Approximate size of the genome you're sampling, in bases. `(-s, --genome_size)`
+* coverage depth: Depth of coeverage to sample to. `(-c, --coverage_depth)`
 
-<input_fastq> is the path to the fastq file you want to subsample. If reads are paired, input both files, separated by a space. These files can be in plain-text or gzipped format.
-<desired_subsample_coverage> is the coverage depth you wish to subsample to. If you try to sample more deeply than you can based on your input fastq files, an error will be thrown.
-<size_of_genome> is how large you estimate the genome you're sampling to be, in base pairs.
-
-Options:
--o [OUTPUT_FILE] Base name for your output file. Defaults to "out".
--g [GZIP_OUTPUT] Option to gzip your output file(s). True when flag is present, false by default.
+## Optional parameters:
+* Gzip output. When included, your output will be gzipped. `(-g, --gzip_output)`
+ 
